@@ -1,0 +1,1 @@
+/home/val/.qmk/firmware/keyboards/preonic/keymaps/val/keymap.c
