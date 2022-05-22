@@ -11,10 +11,12 @@ typedef enum {
 
 #define TAPPING_TERM 200
 typedef enum {
-	TD_CAPS
+	TD_CAPS,
+	TD_QUIT
 } tap_dance;
 qk_tap_dance_action_t tap_dance_actions[] = {
-	[TD_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS)
+	[TD_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_CAPS),
+	[TD_QUIT] = ACTION_TAP_DANCE_DOUBLE(G(KC_ESC), LSG(KC_Q))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -24,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_TAB,		KC_Q,		KC_W,		KC_E,		KC_R,		KC_T,		KC_BSPC,				KC_LBRC,	KC_Y,		KC_U,		KC_I,		KC_O,		KC_P,		KC_BSLS,
 		MO(1),		KC_A,		KC_S,		KC_D,		KC_F,		KC_G,											KC_H,		KC_J,		KC_K,		KC_L,		KC_SCLN,	KC_QUOT,
 		KC_LCTL,	KC_Z,		KC_X,		KC_C,		KC_V,		KC_B,		KC_SPC,					KC_LBRC,	KC_N,		KC_M,		KC_COMM,	KC_DOT,		KC_SLSH,	KC_ENT,
-		TD(TD_CAPS),TG(NUM),	KC_NO,		KC_LGUI,	KC_LALT,																KC_RALT,	LSG(KC_S),	KC_RCTL,	KC_APP,		OSL(2),
+		TD(TD_CAPS),KC_NO,	KC_NO,		KC_LGUI,	KC_LALT,																KC_RALT,	LSG(KC_S),	KC_RCTL,	KC_APP,		OSL(2),
 
 																	KC_INS,		KC_BRK,					KC_HOME,	KC_END,
 																				LAG(KC_SPC),			KC_PGUP,
@@ -44,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 	//	Fn Layer
 	[FN] = LAYOUT_ergodox_pretty(
-		LSG(KC_Q),	G(KC_GRV),	KC_F1,		KC_F2,		KC_F3,		KC_F4,		KC_F5,					KC_F6,		KC_F7,		KC_F8,		KC_F9,		KC_F10,		KC_F11,		KC_TRNS,
+		TD(TD_QUIT),G(KC_GRV),	KC_F1,		KC_F2,		KC_F3,		KC_F4,		KC_F5,					KC_F6,		KC_F7,		KC_F8,		KC_F9,		KC_F10,		KC_F11,		KC_TRNS,
 		RGB_TOG,	LCG(KC_LEFT),G(KC_UP),	LCG(KC_RGHT),KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_F12,
 		KC_NO,		G(KC_LEFT),	G(KC_DOWN),	G(KC_RGHT),	LSG(KC_SPC),KC_NO,											KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_RSFT,
 		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,
