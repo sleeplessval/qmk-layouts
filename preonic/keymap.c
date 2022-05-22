@@ -1,11 +1,20 @@
 
 #include QMK_KEYBOARD_H
+#define LCG(kc) ( QK_LCTL | QK_LGUI | (kc) )
 
 typedef enum {
 	BASE,
 	ALT,
 	FN
 } layers;
+
+#define TAPPING_TERM 200
+typedef enum {
+	TD_QUIT
+} tap_dance;
+qk_tap_dance_action_t tap_dance_actions[] = {
+	[TD_QUIT] = ACTION_TAP_DANCE_DOUBLE(G(KC_ESC), LSG(KC_Q))
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//	Base Layer
@@ -26,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 	//	Function Layer
 	[FN] = LAYOUT_ortho_5x12(
-		SGUI(KC_Q),	LGUI(KC_ESC),	KC_F1,			KC_F2,			KC_F3,	KC_F4,	KC_F5,	KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,
-		KC_NO,		KC_NO,			LGUI(KC_UP),	KC_NO,			KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_F11,
+		TD(TD_QUIT),LGUI(KC_ESC),	KC_F1,			KC_F2,			KC_F3,	KC_F4,	KC_F5,	KC_F6,	KC_F7,	KC_F8,	KC_F9,	KC_F10,
+		RGB_TOG,	KC_NO,			LGUI(KC_UP),	KC_NO,			KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_F11,
 		KC_NO,		LGUI(KC_LEFT),	LGUI(KC_DOWN),	LGUI(KC_RGHT),	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_F12,
 		KC_NO,		KC_NO,			KC_NO,			KC_NO,			KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_HOME,KC_END,	KC_NO,	KC_NO,
 		KC_PGDN,	KC_PGUP,		KC_NO,			KC_NO,			KC_MPLY,KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_NO,	KC_PSCR,KC_NO
@@ -35,6 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #define RGBLIGHT_SLEEP
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 #define RGBLIGHT_MODE_RAINBOW_SWIRL
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
 
