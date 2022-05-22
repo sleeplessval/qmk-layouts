@@ -1,5 +1,6 @@
 
 #include QMK_KEYBOARD_H
+#define LCG(kc) (QK_LCTL | QK_LGUI | (kc))
 
 typedef enum {
 	BASE,
@@ -40,11 +41,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 																	KC_TRNS,	KC_TRNS,				KC_TRNS,	KC_TRNS,
 																				KC_F7,					KC_TRNS,
 														KC_TRNS,	KC_TRNS,	KC_TRNS,				KC_TRNS,	KC_TRNS,	KC_TRNS
-	)//,
+	),
 	//	Fn Layer
-//	[FN] = LAYOUT_ergodox_pretty(
-//		LSG()
-//	)
+	[FN] = LAYOUT_ergodox_pretty(
+		LSG(KC_Q),	G(KC_GRV),	KC_F1,		KC_F2,		KC_F3,		KC_F4,		KC_F5,					KC_F6,		KC_F7,		KC_F8,		KC_F9,		KC_F10,		KC_F11,		KC_TRNS,
+		RGB_TOG,	LCG(KC_LEFT),G(KC_UP),	LCG(KC_RGHT),KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_F12,
+		KC_NO,		G(KC_LEFT),	G(KC_DOWN),	G(KC_RGHT),	LSG(KC_SPC),KC_NO,											KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_RSFT,
+		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,
+		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,																	KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,
+
+																	KC_NO,		KC_NO,					KC_MPRV,	KC_MNXT,
+																				KC_NO,					KC_NO,
+														KC_MPLY,	KC_TRNS,	KC_TRNS,				KC_NO,		KC_NO,		KC_NO
+	)
 };
 
 #define RGBLIGHT_SLEEP
@@ -52,6 +61,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define RBGLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
 
 void keyboard_post_init_user(void) {
+	rgblight_mode(3);
 	rgblight_disable_noeeprom();
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+	ergodox_board_led_off();
+	ergodox_right_led_1_off();
+	ergodox_right_led_2_off();
+	ergodox_right_led_3_off();
+
+	uint8_t layer = get_highest_layer(state);
+	switch(layer) {
+		case ALT:
+			ergodox_right_led_1_on();
+			break;
+		case FN:
+			ergodox_right_led_2_on();
+			break;
+		case NUM:
+			ergodox_right_led_3_on();
+			break;
+	}
+	
+	return state;
 }
 
