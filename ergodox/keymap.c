@@ -55,6 +55,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 																	KC_NO,		KC_NO,					KC_MPRV,	KC_MNXT,
 																				KC_NO,					KC_NO,
 														KC_MPLY,	KC_TRNS,	KC_TRNS,				KC_NO,		KC_NO,		KC_NO
+	),
+	[NUM] = LAYOUT_ergodox_pretty(
+		KC_TRNS,	KC_NO,		KC_PPLS,	KC_NO,		KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_PPLS,	KC_NO,		KC_BSPC,
+		KC_TRNS,	KC_NO,		KC_PMNS,	KC_7,		KC_8,		KC_9,		KC_BSPC,				KC_BSPC,	KC_7,		KC_8,		KC_9,		KC_PMNS,	KC_NO,		KC_NO,
+		KC_NO,		KC_NO,		KC_PAST,	KC_4,		KC_5,		KC_6,											KC_4,		KC_5,		KC_6,		KC_PAST,	KC_NO,		KC_QUOT,
+		KC_LCTL,	KC_NO,		KC_PSLS,	KC_1,		KC_2,		KC_3,		KC_PENT,				KC_PENT,	KC_1,		KC_2,		KC_3,		KC_PSLS,	KC_SLSH,	KC_ENT,
+		KC_LSFT,	TG(BASE),	KC_NO,		KC_DOT,		KC_0,																	KC_0,		KC_DOT,		KC_NO,		KC_NO,		KC_NO,
+
+																	KC_NO,		KC_NO,					KC_NO,		KC_NO,
+																				KC_NO,					KC_PGUP,
+														KC_SPC,		KC_LSFT,	KC_LGUI,				KC_PGDN,	KC_BSPC,	KC_ENT
 	)
 };
 
