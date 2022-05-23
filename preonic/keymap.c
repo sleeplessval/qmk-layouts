@@ -53,19 +53,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
 
 #ifdef AUDIO_ENABLE
-	#define STARTUP_SONG SONG(PREONIC_SOUND)
-	#define BOOT_SONG HD_NOTE(_F5), HD_NOTE(_G5), HD_NOTE(_C6)
-
-	#define TONE_FN HD_NOTE(_G5)
-
-	float boot_song[][2] = SONG(BOOT_SONG);
 	float tone_fn[][2] = SONG(TONE_FN);
 #endif
 
 void keyboard_post_init_user(void) {
-	#ifdef BOOT_SONG
-		PLAY_SONG(boot_song);
-	#endif
 	rgblight_disable_noeeprom();
 }
 
