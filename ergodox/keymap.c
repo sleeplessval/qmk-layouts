@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[FN] = LAYOUT_ergodox_pretty(
 		TD(TD_QUIT),G(KC_GRV),	KC_F1,		KC_F2,		KC_F3,		KC_F4,		KC_F5,					KC_F6,		KC_F7,		KC_F8,		KC_F9,		KC_F10,		KC_F11,		KC_TRNS,
 		RGB_TOG,	LCG(KC_LEFT),G(KC_UP),	LCG(KC_RGHT),KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_F12,
-		KC_NO,		G(KC_LEFT),	G(KC_DOWN),	G(KC_RGHT),	LSG(KC_SPC),KC_NO,											KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_RSFT,
+		RGB_MOD,	G(KC_LEFT),	G(KC_DOWN),	G(KC_RGHT),	LSG(KC_SPC),KC_NO,											KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_RSFT,
 		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,
 		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,																	KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,
 
@@ -69,12 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 };
 
-#define RGBLIGHT_SLEEP
-#define RGBLIGHT_MODE_RAINBOW_SWIRL
-#define RBGLIGHT_DEFAULT_MODE RGBLIGHT_MODE_RAINBOW_SWIRL
-
 void keyboard_post_init_user(void) {
-	rgblight_mode(3);
 	rgblight_disable_noeeprom();
 }
 
