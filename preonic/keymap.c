@@ -48,6 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef AUDIO_ENABLE
+	float tone_alt[][2] = SONG(TONE_ALT);
 	float tone_fn[][2] = SONG(TONE_FN);
 #endif
 
@@ -58,6 +59,11 @@ void keyboard_post_init_user(void) {
 layer_state_t layer_state_set_user(layer_state_t state) {
 	uint8_t layer = get_highest_layer(state);
 	switch(layer) {
+		case ALT:
+			#ifdef TONE_ALT
+				PLAY_SONG(tone_alt);
+			#endif
+			break;
 		case FN:
 			#ifdef TONE_FN
 				PLAY_SONG(tone_fn);
