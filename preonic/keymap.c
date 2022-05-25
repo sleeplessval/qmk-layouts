@@ -20,7 +20,7 @@ typedef enum {
 	TD_QUIT
 } tap_dance;
 qk_tap_dance_action_t tap_dance_actions[] = {
-	[TD_QUIT] = ACTION_TAP_DANCE_DOUBLE(G(KC_ESC), LSG(KC_Q))
+	[TD_QUIT] = ACTION_TAP_DANCE_DOUBLE(LSG(KC_ESC), LSG(KC_Q))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
