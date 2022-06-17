@@ -48,13 +48,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[FN] = LAYOUT_ergodox_pretty(
 		TD(TD_QUIT),G(KC_GRV),	KC_F1,		KC_F2,		KC_F3,		KC_F4,		KC_F5,					KC_F6,		KC_F7,		KC_F8,		KC_F9,		KC_F10,		KC_F11,		KC_TRNS,
 		RGB_TOG,	LCG(KC_LEFT),G(KC_UP),	LCG(KC_RGHT),KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_F12,
-		RGB_MOD,	G(KC_LEFT),	G(KC_DOWN),	G(KC_RGHT),	LSG(KC_SPC),KC_NO,											KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_RSFT,
+		RGB_MOD,	G(KC_LEFT),	G(KC_DOWN),	G(KC_RGHT),	LSG(KC_SPC),KC_NO,											KC_TRNS,	KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_RSFT,
 		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,
-		KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,																	KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_NO,
+		KC_TRNS,	KC_NO,		KC_NO,		KC_TRNS,	KC_TRNS,																KC_TRNS,	KC_NO,		KC_TRNS,	KC_NO,		KC_NO,
 
 																	KC_NO,		KC_NO,					KC_MPRV,	KC_MNXT,
 																				KC_NO,					KC_NO,
-														KC_MPLY,	KC_TRNS,	KC_TRNS,				KC_NO,		KC_NO,		KC_NO
+														KC_MPLY,	KC_TRNS,	KC_TRNS,				KC_NO,		KC_TRNS,	KC_TRNS
 	),
 	[NUM] = LAYOUT_ergodox_pretty(
 		KC_TRNS,	KC_NO,		KC_PPLS,	KC_NO,		KC_NO,		KC_NO,		KC_NO,					KC_NO,		KC_NO,		KC_NO,		KC_NO,		KC_PPLS,	KC_NO,		KC_BSPC,
