@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef AUDIO_ENABLE
-	float tone_alt[][2] = SONG(TONE_BASE);
+	float tone_base[][2] = SONG(TONE_BASE);
 	float tone_alt[][2] = SONG(TONE_ALT);
 	float tone_fn[][2] = SONG(TONE_FN);
 #endif
