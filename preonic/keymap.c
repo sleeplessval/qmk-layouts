@@ -1,5 +1,5 @@
 /*
- *	    ____             Valerie's   _  Super  __ __   Amazing
+ *	    ____            Valerie's   _  Super  __ __   Amazing
  *	   / __ \________  ____  ____  (_)____   / //_/__  __  ______ ___  ____ _____
  *	  / /_/ / ___/ _ \/ __ \/ __ \/ / ___/  / ,< / _ \/ / / / __ `__ \/ __ `/ __ \
  *	 / ____/ /  /  __/ /_/ / / / / / /__   / /| /  __/ /_/ / / / / / / /_/ / /_/ /
@@ -61,7 +61,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 	uint8_t layer = get_highest_layer(state);
 	switch(layer) {
 		case BASE:
-			#ifdef TONE_MAIN
+			#ifdef TONE_BASE
 				PLAY_SONG(tone_base);
 			#endif
 			break;
