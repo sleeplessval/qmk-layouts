@@ -19,7 +19,7 @@ typedef enum {
 typedef enum {
 	TD_QUIT
 } tap_dance;
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
 	[TD_QUIT] = ACTION_TAP_DANCE_DOUBLE(LSG(KC_ESC), LSG(KC_Q))
 };
 
